@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ContactHomeComponent } from './contacts/contact-home/contact-home.component';
 import { ProductHomeComponent } from './products/product-home/product-home.component';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ContactDetailComponent } from './contacts/contact-detail/contact-detail
     ContactHomeComponent,
     ContactDetailComponent,
     ProductHomeComponent,
+    ProductDetailComponent,
   ],
   imports: [
     AppRoutingModule,

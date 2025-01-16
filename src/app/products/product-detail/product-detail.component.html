@@ -1,0 +1,29 @@
+<mat-card class="card">
+    <mat-card-title>Contact Detail</mat-card-title>
+    <div *ngIf="product">
+        <mat-card-content class="card-content">
+            <p>
+                <mat-icon>kitchen</mat-icon>
+                <strong>Name: </strong>{{ product.name }}
+            </p>
+            <p>
+                <mat-icon>inventory 2</mat-icon>
+                <strong>Stock: </strong>{{ product.stock }}
+            </p>
+            <p>
+                <mat-icon>payments</mat-icon>
+                <strong>Price: </strong>{{ product.price | currency:'EUR'}}
+            </p>
+            <p>
+                <mat-icon>toggle_on</mat-icon>
+                <strong>Active: </strong>{{ product.active ? "Disponible":"No disponible" }}
+            </p>
+            <p>
+                <mat-icon><span class="material-symbols-outlined">
+                    calendar_month
+                    </span></mat-icon>
+                <strong>Date Added: </strong>{{ product.date_added | date: 'longDate' }}
+            </p>
+        </mat-card-content>
+    </div>
+</mat-card>
