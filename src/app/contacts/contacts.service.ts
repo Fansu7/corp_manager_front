@@ -21,4 +21,11 @@ export class ContactsService {
     const body = JSON.stringify({id: c_id});
     return this.http.post<IContact>(url, body, { headers });
   }
+
+  updateContact(contact: IContact): Observable<any> {
+    const url = 'http://localhost:30030/contacts/update';
+    const body = contact;
+    const headers = new HttpHeaders();
+    return this.http.put(url, body, { headers });
+  }
 }
