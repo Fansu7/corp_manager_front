@@ -25,6 +25,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="['name', 'surname', 'lastName', 'telephone', 'email']"></tr>
-    <tr mat-row *matRowDef=" let row; columns: ['name', 'surname', 'lastName', 'telephone', 'email'];"></tr>
+    <tr mat-row *matRowDef=" let row; columns: ['name', 'surname', 'lastName', 'telephone', 'email'];" (click)="openDetailForm(row)">
+    </tr>
 
 </table>
