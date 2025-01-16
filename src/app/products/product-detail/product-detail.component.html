@@ -15,7 +15,7 @@
                 <strong>Price: </strong>{{ product.price | currency:'EUR'}}
             </p>
             <p>
-                <mat-icon>toggle_on</mat-icon>
+                <mat-icon>{{ product.active ? "toggle_on":"toggle_off" }}</mat-icon>
                 <strong>Active: </strong>{{ product.active ? "Disponible":"No disponible" }}
             </p>
             <p>
