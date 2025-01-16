@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IContact } from '../models/contact';
 
@@ -13,5 +13,12 @@ export class ContactsService {
   getContacts(): Observable<IContact[]>{
     const url = 'http://localhost:30030/contacts/getAll';
     return this.http.get<IContact[]>(url);
+  }
+
+  getContact(c_id:number): Observable<IContact>{
+    const url = 'http://localhost:30030/contacts/get';
+    const headers = new HttpHeaders().set('Content-Type','application/json');
+    const body = JSON.stringify({id: c_id});
+    return this.http.post<IContact>(url, body, { headers });
   }
 }
