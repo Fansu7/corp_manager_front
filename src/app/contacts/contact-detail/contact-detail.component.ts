@@ -6,24 +6,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
-  styleUrls: ['./contact-detail.component.css']
+  styleUrls: ['./contact-detail.component.css'],
 })
 export class ContactDetailComponent implements OnInit {
-  contact!:IContact;
+  contact!: IContact;
 
-  constructor(private contactsService: ContactsService, private route: ActivatedRoute, private router:Router){
-
-  }
+  constructor(
+    private contactsService: ContactsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.contactsService.getContact(this.route.snapshot.params['id']).subscribe( (data:IContact) => (this.contact = data) );
+    this.contactsService
+      .getContact(this.route.snapshot.params['id'])
+      .subscribe((data: IContact) => (this.contact = data));
   }
 
-  editContact(){
+  editContact() {
     this.router.navigate(['/contact/edit', this.route.snapshot.params['id']]);
   }
 
-  closeContact(){
+  closeContact() {
     this.router.navigate(['/contacts']);
   }
 }

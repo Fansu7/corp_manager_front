@@ -6,20 +6,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-contact-home',
   templateUrl: './contact-home.component.html',
-  styleUrls: ['./contact-home.component.css']
+  styleUrls: ['./contact-home.component.css'],
 })
 export class ContactHomeComponent implements OnInit {
   contacts!: IContact[];
 
-  constructor(private contactService: ContactsService, private router: Router){}
+  constructor(
+    private contactService: ContactsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.contactService
-    .getContacts()
-    .subscribe((data: IContact[]) => (this.contacts = data));
+      .getContacts()
+      .subscribe((data: IContact[]) => (this.contacts = data));
   }
 
-  openDetailForm(row:any){
+  openDetailForm(row: any) {
     this.router.navigate(['/contacts', row.id]);
   }
 }

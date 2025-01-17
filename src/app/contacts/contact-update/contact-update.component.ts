@@ -26,7 +26,9 @@ export class ContactUpdateComponent implements OnInit {
   }
 
   updateContact(): void {
-    this.contactsService.updateContact(this.contact).subscribe((data: any)=>{this.navigateToDetails()});
+    this.contactsService.updateContact(this.contact).subscribe((data: any) => {
+      this.navigateToDetails();
+    });
   }
 
   cancelChanges(): void {
@@ -34,6 +36,6 @@ export class ContactUpdateComponent implements OnInit {
   }
 
   private navigateToDetails(): void {
-    this.router.navigate(['/contacts', this.route.snapshot.params['id']])
+    this.router.navigate(['/contacts', this.route.snapshot.params['id']]);
   }
 }

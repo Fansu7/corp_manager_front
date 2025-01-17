@@ -6,20 +6,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-product-home',
   templateUrl: './product-home.component.html',
-  styleUrls: ['./product-home.component.css']
+  styleUrls: ['./product-home.component.css'],
 })
 export class ProductHomeComponent {
   products!: IProduct[];
 
-  constructor(private productService: ProductsService, private router:Router){}
+  constructor(
+    private productService: ProductsService,
+    private router: Router
+  ) {}
 
-    ngOnInit(): void {
-      this.productService
+  ngOnInit(): void {
+    this.productService
       .getProducts()
       .subscribe((data: IProduct[]) => (this.products = data));
-    }
+  }
 
-  openDetailForm(row:IProduct){
+  openDetailForm(row: IProduct) {
     this.router.navigate(['/products', row.id]);
   }
 }

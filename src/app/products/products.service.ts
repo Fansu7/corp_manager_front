@@ -4,21 +4,20 @@ import { Observable } from 'rxjs';
 import { IProduct } from '../models/product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getProducts(): Observable<IProduct[]>{
+  getProducts(): Observable<IProduct[]> {
     const url = 'http://localhost:30030/products/getAll';
     return this.http.get<IProduct[]>(url);
   }
 
-  getProduct(p_id:number): Observable<IProduct>{
+  getProduct(p_id: number): Observable<IProduct> {
     const url = 'http://localhost:30030/products/get';
-    const headers = new HttpHeaders().set('Content-Type','application/json');
-    const body = JSON.stringify({id: p_id});
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({ id: p_id });
     return this.http.post<IProduct>(url, body, { headers });
   }
 

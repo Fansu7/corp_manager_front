@@ -1,37 +1,41 @@
 <mat-card class="card">
-    <mat-card-title>Contact Detail</mat-card-title>
-    <div *ngIf="product">
-        <mat-card-content class="card-content">
-            <p>
-                <mat-icon>kitchen</mat-icon>
-                <strong>Name: </strong>{{ product.name }}
-            </p>
-            <p>
-                <mat-icon>inventory 2</mat-icon>
-                <strong>Stock: </strong>{{ product.stock }}
-            </p>
-            <p>
-                <mat-icon>payments</mat-icon>
-                <strong>Price: </strong>{{ product.price | currency:'EUR'}}
-            </p>
-            <p>
-                <mat-icon>{{ product.active ? "toggle_on":"toggle_off" }}</mat-icon>
-                <strong>Active: </strong>{{ product.active ? "Disponible":"No disponible" }}
-            </p>
-            <p>
-                <mat-icon><span class="material-symbols-outlined">
-                    calendar_month
-                    </span></mat-icon>
-                <strong>Date Added: </strong>{{ product.date_added | date: 'longDate' }}
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-raised-button type="button" (click)="editProduct()">
-                <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-raised-button type="button" (click)="closeProduct()">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-card-actions>
-    </div>
+  <mat-card-title>Contact Detail</mat-card-title>
+  <div *ngIf="product">
+    <mat-card-content class="card-content">
+      <p>
+        <mat-icon>kitchen</mat-icon>
+        <strong>Name: </strong>{{ product.name }}
+      </p>
+      <p>
+        <mat-icon>inventory 2</mat-icon>
+        <strong>Stock: </strong>{{ product.stock }}
+      </p>
+      <p>
+        <mat-icon>payments</mat-icon>
+        <strong>Price: </strong>{{ product.price | currency : "EUR" }}
+      </p>
+      <p>
+        <mat-icon>{{ product.active ? "toggle_on" : "toggle_off" }}</mat-icon>
+        <strong>Active: </strong
+        >{{ product.active ? "Disponible" : "No disponible" }}
+      </p>
+      <p>
+        <mat-icon
+          ><span class="material-symbols-outlined">
+            calendar_month
+          </span></mat-icon
+        >
+        <strong>Date Added: </strong
+        >{{ product.date_added | date : "longDate" }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button type="button" (click)="editProduct()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-raised-button type="button" (click)="closeProduct()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
 </mat-card>
