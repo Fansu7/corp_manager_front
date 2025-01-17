@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IContact } from 'src/app/models/contact';
 import { ContactsService } from '../contacts.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-detail',
@@ -11,11 +11,19 @@ import { ActivatedRoute } from '@angular/router';
 export class ContactDetailComponent implements OnInit {
   contact!:IContact;
 
-  constructor(private contactsService: ContactsService, private route: ActivatedRoute){
+  constructor(private contactsService: ContactsService, private route: ActivatedRoute, private router:Router){
 
   }
 
   ngOnInit(): void {
     this.contactsService.getContact(this.route.snapshot.params['id']).subscribe( (data:IContact) => (this.contact = data) );
+  }
+
+  editContact(){
+    this.router.navigate(['/contact/edit', this.route.snapshot.params['id']]);
+  }
+
+  closeContact(){
+    this.router.navigate(['/contacts']);
   }
 }
