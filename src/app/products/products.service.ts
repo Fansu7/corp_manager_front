@@ -21,4 +21,11 @@ export class ProductsService {
     const body = JSON.stringify({id: p_id});
     return this.http.post<IProduct>(url, body, { headers });
   }
+
+  updateProduct(product: IProduct): Observable<any> {
+    const url = 'http://localhost:30030/products/update';
+    const body = product;
+    const headers = new HttpHeaders();
+    return this.http.put(url, body, { headers });
+  }
 }
