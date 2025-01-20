@@ -5,6 +5,7 @@ import { ContactNewComponent } from './contacts/contact-new/contact-new.componen
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
 import { ContactUpdateComponent } from './contacts/contact-update/contact-update.component';
 import { ProductHomeComponent } from './products/product-home/product-home.component';
+import { ProductNewComponent } from './products/product-new/product-new.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductUpdateComponent } from './products/product-update/product-update.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'contacts/:id', component: ContactDetailComponent },
   { path: 'contact/edit/:id', component: ContactUpdateComponent },
   { path: 'products', component: ProductHomeComponent },
+  { path: 'product/new', component: ProductNewComponent },
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'product/edit/:id', component: ProductUpdateComponent },
 ];

@@ -27,4 +27,11 @@ export class ProductsService {
     const headers = new HttpHeaders();
     return this.http.put(url, body, { headers });
   }
+
+  newProduct(product: IProduct): Observable<any> {
+    const url = 'http://localhost:30030/products/add';
+    const body = product;
+    const headers = new HttpHeaders();
+    return this.http.post(url, body, { headers });
+  }
 }

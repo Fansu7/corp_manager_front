@@ -23,6 +23,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ContactUpdateComponent } from './contacts/contact-update/contact-update.component';
 import { ProductUpdateComponent } from './products/product-update/product-update.component';
 import { ContactNewComponent } from './contacts/contact-new/contact-new.component';
+import { ProductNewComponent } from './products/product-new/product-new.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ContactNewComponent } from './contacts/contact-new/contact-new.componen
     ContactUpdateComponent,
     ProductUpdateComponent,
     ContactNewComponent,
+    ProductNewComponent,
   ],
   imports: [
     AppRoutingModule,
