@@ -27,4 +27,11 @@ export class ContactsService {
     const headers = new HttpHeaders();
     return this.http.put(url, body, { headers });
   }
+
+  newContact(contact: IContact): Observable<any> {
+    const url = 'http://localhost:30030/contacts/add';
+    const body = contact;
+    const headers = new HttpHeaders();
+    return this.http.post(url, body, { headers });
+  }
 }
