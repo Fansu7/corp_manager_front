@@ -26,6 +26,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductHomeComponent } from './products/product-home/product-home.component';
 import { ProductNewComponent } from './products/product-new/product-new.component';
 import { ProductUpdateComponent } from './products/product-update/product-update.component';
+import { ProductDeleteComponent } from './products/product-delete/product-delete.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,9 @@ import { ProductUpdateComponent } from './products/product-update/product-update
     ContactNewComponent,
     ProductNewComponent,
     ContactDeleteComponent,
+    ProductDeleteComponent,
   ],
-  entryComponents: [ContactDeleteComponent],
+  entryComponents: [ContactDeleteComponent, ProductDeleteComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,

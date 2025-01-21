@@ -1,9 +1,10 @@
+buttons{
+  display: flex;
+  align-items: center;
+}
+
 .buttons{
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-}
-
-.buttons button{
-  margin-left: 8px;
 }

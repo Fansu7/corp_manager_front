@@ -34,4 +34,11 @@ export class ProductsService {
     const headers = new HttpHeaders();
     return this.http.post(url, body, { headers });
   }
+
+  deleteProduct(id: number): Observable<any> {
+    const url = 'http://localhost:30030/products/delete';
+    const body = { id: id };
+    const options = { body, header: new HttpHeaders() };
+    return this.http.delete(url, options);
+  }
 }
