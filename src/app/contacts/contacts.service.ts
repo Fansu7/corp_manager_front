@@ -34,4 +34,11 @@ export class ContactsService {
     const headers = new HttpHeaders();
     return this.http.post(url, body, { headers });
   }
+
+  deleteContact(id: number): Observable<any> {
+    const url = 'http://localhost:30030/contacts/delete';
+    const body = { id: id };
+    const options = { body, header: new HttpHeaders() };
+    return this.http.delete(url, options);
+  }
 }

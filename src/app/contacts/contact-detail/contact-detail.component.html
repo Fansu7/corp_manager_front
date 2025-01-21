@@ -24,11 +24,23 @@
       </p>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-raised-button type="button" (click)="editContact()">
-        <mat-icon>edit</mat-icon>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="editContact()"
+      >
+        <mat-icon>edit</mat-icon>Edit
       </button>
       <button mat-raised-button type="button" (click)="closeContact()">
-        <mat-icon>close</mat-icon>
+        <mat-icon>close</mat-icon>Close
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="openDeleteDialog(contact.id); $event.stopPropagation()"
+      >
+        <mat-icon>delete</mat-icon>Delete
       </button>
     </mat-card-actions>
   </div>

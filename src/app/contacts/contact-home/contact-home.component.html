@@ -24,16 +24,35 @@
     <th mat-header-cell *matHeaderCellDef>Email</th>
     <td mat-cell *matCellDef="let contact">{{ contact.email }}</td>
   </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let contact">
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="openDeleteDialog(contact.id); $event.stopPropagation()"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
 
   <tr
     mat-header-row
-    *matHeaderRowDef="['name', 'surname', 'lastName', 'telephone', 'email']"
+    *matHeaderRowDef="[
+      'name',
+      'surname',
+      'lastName',
+      'telephone',
+      'email',
+      'actions'
+    ]"
   ></tr>
   <tr
     mat-row
     *matRowDef="
       let row;
-      columns: ['name', 'surname', 'lastName', 'telephone', 'email']
+      columns: ['name', 'surname', 'lastName', 'telephone', 'email', 'actions']
     "
     (click)="openDetailForm(row)"
   ></tr>

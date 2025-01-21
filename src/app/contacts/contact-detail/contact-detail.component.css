@@ -10,3 +10,7 @@
 .card-content p mat-icon, .card-content p strong{
     margin-right: 5px;
 }
+
+.mdc-card__actions{
+    gap: 8px;
+}
