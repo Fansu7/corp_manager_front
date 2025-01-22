@@ -25,6 +25,10 @@ export class ProductHomeComponent {
       .subscribe((data: IProduct[]) => (this.products = data));
   }
 
+  editProductDetail(productId: number) {
+    this.router.navigate(['/product/edit', productId]);
+  }
+
   openDetailForm(row: IProduct) {
     this.router.navigate(['/products', row.id]);
   }
