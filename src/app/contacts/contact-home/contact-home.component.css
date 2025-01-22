@@ -4,14 +4,9 @@
 
 table{
     margin: 20px 0px 0px 40px;
-    width: calc(100% - 80px);
+    min-width: calc(100% - 80px);
 }
 
 #new-contact{
     margin: 20px 0px 0px 40px;
-}
-
-.buttons{
-    display: flex;
-    justify-content: baseline;
 }
