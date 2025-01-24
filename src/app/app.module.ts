@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -14,9 +12,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ChartsComponent } from './charts/charts.component';
 import { ContactHomeComponent } from './contacts/contact-home/contact-home.component';
 import { ContactDeleteComponent } from './contacts/contact-delete/contact-delete.component';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
@@ -41,6 +44,7 @@ import { ProductDeleteComponent } from './products/product-delete/product-delete
     ProductNewComponent,
     ContactDeleteComponent,
     ProductDeleteComponent,
+    ChartsComponent,
   ],
   entryComponents: [ContactDeleteComponent, ProductDeleteComponent],
   imports: [
@@ -59,6 +63,7 @@ import { ProductDeleteComponent } from './products/product-delete/product-delete
     MatIconModule,
     MatInputModule,
     MatNativeDateModule,
+    NgxChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
