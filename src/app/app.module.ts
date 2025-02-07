@@ -34,6 +34,7 @@ import { CompanyHomeComponent } from './companies/company-home/company-home.comp
 import { CompanyDetailComponent } from './companies/company-detail/company-detail.component';
 import { CompanyDeleteComponent } from './companies/company-delete/company-delete.component';
 import { CompanyNewComponent } from './companies/company-new/company-new.component';
+import { CompanyUpdateComponent } from './companies/company-update/company-update.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { CompanyNewComponent } from './companies/company-new/company-new.compone
     CompanyDetailComponent,
     CompanyDeleteComponent,
     CompanyNewComponent,
+    CompanyUpdateComponent,
   ],
   entryComponents: [
     ContactDeleteComponent,
