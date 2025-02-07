@@ -3,7 +3,7 @@ import { ICompany } from 'src/app/models/company';
 import { CompanyService } from '../company.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ContactDeleteComponent } from 'src/app/contacts/contact-delete/contact-delete.component';
+import { CompanyDeleteComponent } from '../company-delete/company-delete.component';
 
 @Component({
   selector: 'app-company-home',
@@ -31,7 +31,7 @@ export class CompanyHomeComponent implements OnInit {
   }
 
   openDeleteDialog(companyId: number) {
-    this.dialog.open(ContactDeleteComponent, {
+    this.dialog.open(CompanyDeleteComponent, {
       data: { companyId: companyId },
     });
   }

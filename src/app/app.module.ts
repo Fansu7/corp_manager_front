@@ -52,7 +52,11 @@ import { CompanyDeleteComponent } from './companies/company-delete/company-delet
     CompanyDetailComponent,
     CompanyDeleteComponent,
   ],
-  entryComponents: [ContactDeleteComponent, ProductDeleteComponent],
+  entryComponents: [
+    ContactDeleteComponent,
+    ProductDeleteComponent,
+    CompanyDeleteComponent,
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,

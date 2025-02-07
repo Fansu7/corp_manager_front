@@ -36,7 +36,7 @@ export class CompanyDetailComponent {
 
   openDeleteDialog(companyId: number | undefined) {
     const dialogRef = this.dialog.open(CompanyDeleteComponent, {
-      data: { comapnyId: companyId },
+      data: { companyId: companyId },
     });
   }
 }
