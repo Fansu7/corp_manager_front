@@ -15,6 +15,7 @@ export class ContactNewComponent implements OnInit {
     lastName: '',
     telephone: '',
     email: '',
+    companyName: '',
   };
 
   constructor(
