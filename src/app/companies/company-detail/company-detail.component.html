@@ -1,0 +1,45 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Company Detail</mat-card-title>
+  </mat-card-header>
+  <div *ngIf="company">
+    <mat-card-content class="card-content">
+      <p>
+        <mat-icon>person</mat-icon>
+        <strong>Name: </strong>{{ company.name }}
+      </p>
+      <p>
+        <mat-icon>public</mat-icon>
+        <strong>Country: </strong>{{ company.country }}
+      </p>
+      <p>
+        <mat-icon>apartment</mat-icon>
+        <strong>City: </strong>{{ company.city }}
+      </p>
+      <p>
+        <mat-icon>website</mat-icon>
+        <strong>Website: </strong>{{ company.website }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="editCompany()"
+      >
+        <mat-icon>edit</mat-icon>Edit
+      </button>
+      <button mat-raised-button type="button" (click)="closeCompany()">
+        <mat-icon>close</mat-icon>Close
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="openDeleteDialog(company.id); $event.stopPropagation()"
+      >
+        <mat-icon>delete</mat-icon>Delete
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>

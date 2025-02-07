@@ -1,4 +1,4 @@
-<a mat-stroked-button routerLink="/contact/new" id="new-company">New Company</a>
+<a mat-stroked-button routerLink="/company/new" id="new-company">New Company</a>
 <table mat-table [dataSource]="companies" class="mat-elevation-z8 card">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>Id.</th>
@@ -26,7 +26,7 @@
       <button
         mat-icon-button
         color="primary"
-        (click)="editContactDetail(company.id); $event.stopPropagation()"
+        (click)="editCompanyDetail(company.id); $event.stopPropagation()"
       >
         <mat-icon>edit</mat-icon>
       </button>

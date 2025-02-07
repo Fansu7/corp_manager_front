@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ICompany } from 'src/app/models/company';
 import { CompanyService } from '../company.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ContactDeleteComponent } from 'src/app/contacts/contact-delete/contact-delete.component';
 
 @Component({
   selector: 'app-company-home',
@@ -9,27 +11,32 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./company-home.component.css'],
 })
 export class CompanyHomeComponent implements OnInit {
-  openDetailForm(_t86: any) {
-    throw new Error('Method not implemented.');
-  }
-  openDeleteDialog(arg0: any) {
-    throw new Error('Method not implemented.');
-  }
-  editContactDetail(arg0: any) {
-    throw new Error('Method not implemented.');
-  }
-
   companies!: ICompany[];
 
   constructor(
     private companyService: CompanyService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.companyService
       .getCompanies()
       .subscribe((data: ICompany[]) => (this.companies = data));
+  }
+
+  openDetailForm(row: ICompany) {
+    this.router.navigate(['/companies', row.id]);
+  }
+
+  openDeleteDialog(companyId: number) {
+    this.dialog.open(ContactDeleteComponent, {
+      data: { companyId: companyId },
+    });
+  }
+
+  editCompanyDetail(companyId: number) {
+    this.router.navigate(['/company/edit', companyId]);
   }
 }

@@ -10,10 +10,13 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductUpdateComponent } from './products/product-update/product-update.component';
 import { ChartsComponent } from './charts/charts.component';
 import { CompanyHomeComponent } from './companies/company-home/company-home.component';
+import { CompanyDetailComponent } from './companies/company-detail/company-detail.component';
 
 const routes: Routes = [
   { path: '', component: ChartsComponent },
   { path: 'companies', component: CompanyHomeComponent },
+  { path: 'company/new', component: CompanyHomeComponent },
+  { path: 'companies/:id', component: CompanyDetailComponent },
   { path: 'contacts', component: ContactHomeComponent },
   { path: 'contact/new', component: ContactNewComponent },
   { path: 'contacts/:id', component: ContactDetailComponent },

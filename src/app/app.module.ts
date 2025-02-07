@@ -31,6 +31,8 @@ import { ProductNewComponent } from './products/product-new/product-new.componen
 import { ProductUpdateComponent } from './products/product-update/product-update.component';
 import { ProductDeleteComponent } from './products/product-delete/product-delete.component';
 import { CompanyHomeComponent } from './companies/company-home/company-home.component';
+import { CompanyDetailComponent } from './companies/company-detail/company-detail.component';
+import { CompanyDeleteComponent } from './companies/company-delete/company-delete.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { CompanyHomeComponent } from './companies/company-home/company-home.comp
     ProductDeleteComponent,
     ChartsComponent,
     CompanyHomeComponent,
+    CompanyDetailComponent,
+    CompanyDeleteComponent,
   ],
   entryComponents: [ContactDeleteComponent, ProductDeleteComponent],
   imports: [
