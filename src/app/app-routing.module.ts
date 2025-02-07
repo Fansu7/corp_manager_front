@@ -11,11 +11,12 @@ import { ProductUpdateComponent } from './products/product-update/product-update
 import { ChartsComponent } from './charts/charts.component';
 import { CompanyHomeComponent } from './companies/company-home/company-home.component';
 import { CompanyDetailComponent } from './companies/company-detail/company-detail.component';
+import { CompanyNewComponent } from './companies/company-new/company-new.component';
 
 const routes: Routes = [
   { path: '', component: ChartsComponent },
   { path: 'companies', component: CompanyHomeComponent },
-  { path: 'company/new', component: CompanyHomeComponent },
+  { path: 'company/new', component: CompanyNewComponent },
   { path: 'companies/:id', component: CompanyDetailComponent },
   { path: 'contacts', component: ContactHomeComponent },
   { path: 'contact/new', component: ContactNewComponent },

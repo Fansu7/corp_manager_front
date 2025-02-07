@@ -33,6 +33,7 @@ import { ProductDeleteComponent } from './products/product-delete/product-delete
 import { CompanyHomeComponent } from './companies/company-home/company-home.component';
 import { CompanyDetailComponent } from './companies/company-detail/company-detail.component';
 import { CompanyDeleteComponent } from './companies/company-delete/company-delete.component';
+import { CompanyNewComponent } from './companies/company-new/company-new.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CompanyDeleteComponent } from './companies/company-delete/company-delet
     CompanyHomeComponent,
     CompanyDetailComponent,
     CompanyDeleteComponent,
+    CompanyNewComponent,
   ],
   entryComponents: [
     ContactDeleteComponent,
