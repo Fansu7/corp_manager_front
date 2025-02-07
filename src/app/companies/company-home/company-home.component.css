@@ -1,0 +1,12 @@
+.mat-mdc-row{
+  cursor: pointer;
+}
+
+table{
+  margin: 20px 0px 0px 40px;
+  min-width: calc(100% - 80px);
+}
+
+#new-company{
+  margin: 20px 0px 0px 40px;
+}
