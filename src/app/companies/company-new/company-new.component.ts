@@ -14,6 +14,7 @@ export class CompanyNewComponent {
     country: '',
     city: '',
     website: '',
+    sector: '',
     contacts: [],
   };
 

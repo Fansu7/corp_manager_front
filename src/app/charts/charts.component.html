@@ -1,4 +1,67 @@
 <mat-card class="card">
+  <mat-card-title>Charts - Companies</mat-card-title>
+  <mat-card-content>
+    <div class="chart-row">
+      <div>
+        <p><strong>Company contacts</strong></p>
+        <ngx-charts-bar-vertical
+          [view]="[400, 300]"
+          [results]="companyContacts"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="false"
+          [showXAxisLabel]="true"
+          [showYAxisLabel]="true"
+          xAxisLabel="Company"
+          yAxisLabel="Number of contacts"
+          [yAxisTickFormatting]="formatAxisTick"
+        ></ngx-charts-bar-vertical>
+      </div>
+      <div>
+        <p><strong>Number of Companies per country</strong></p>
+        <ngx-charts-pie-chart
+          [view]="[400, 300]"
+          [results]="companiesByCountry"
+          [labels]="true"
+          [doughnut]="true"
+        ></ngx-charts-pie-chart>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div>
+        <p><strong>Companies per sector</strong></p>
+        <ngx-charts-line-chart
+          [view]="[400, 300]"
+          [results]="companiesBySector"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="false"
+          [showXAxisLabel]="true"
+          [showYAxisLabel]="true"
+          xAxisLabel="Sector"
+          yAxisLabel="Number of companies"
+          [yAxisTickFormatting]="formatAxisTick"
+        ></ngx-charts-line-chart>
+      </div>
+      <div>
+        <p><strong>Cities</strong></p>
+        <ngx-charts-bar-horizontal
+          [view]="[400, 300]"
+          [results]="companiesCityData"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="false"
+          [showYAxisLabel]="true"
+          [showYAxisLabel]="true"
+          xAxisLabel="Number of companies"
+          yAxisLabel="City"
+          [xAxisTickFormatting]="formatAxisTick"
+        ></ngx-charts-bar-horizontal>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<mat-card class="card">
   <mat-card-title>Charts - Contacts</mat-card-title>
   <mat-card-content>
     <div class="chart-row">

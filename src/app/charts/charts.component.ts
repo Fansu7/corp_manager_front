@@ -3,6 +3,8 @@ import { ContactsService } from '../contacts/contacts.service';
 import { IContact } from '../models/contact';
 import { IProduct } from '../models/product';
 import { ProductsService } from '../products/products.service';
+import { CompanyService } from '../companies/company.service';
+import { ICompany } from '../models/company';
 
 @Component({
   selector: 'app-charts',
@@ -12,9 +14,13 @@ import { ProductsService } from '../products/products.service';
 export class ChartsComponent implements OnInit {
   initialLetter: any[] = [];
   initialLetterP: any[] = [];
+  companyContacts: any[] = [];
+  companiesBySector: any;
+  companiesCityData!: [];
   contactsByFullName: any;
   productsByFullName: any;
   emailExtensions: any;
+  companiesByCountry: any;
   phonePrefixData!: [];
   productsAvailability: any;
   productsStock: any;
@@ -22,7 +28,8 @@ export class ChartsComponent implements OnInit {
 
   constructor(
     private contactsService: ContactsService,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private companyService: CompanyService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +38,7 @@ export class ChartsComponent implements OnInit {
       this.contactsByFullName = this.calculateContactsByFullName(contacts);
       this.emailExtensions = this.calculateEmailExtensionsData(contacts);
       this.phonePrefixData = this.generatePhonePrefixData(contacts);
+      this.companyContacts = this.calculateContactsByCompany(contacts);
     });
     this.productsService.getProducts().subscribe((products: IProduct[]) => {
       this.initialLetterP = this.calculateInitialLettersDataP(products);
@@ -39,6 +47,93 @@ export class ChartsComponent implements OnInit {
       this.productsStock = this.calculateProductsStock(products);
       this.productsPrices = this.calculateProductsPrice(products);
     });
+    this.companyService.getCompanies().subscribe((companies: ICompany[]) => {
+      this.companiesByCountry = this.calculateCompaniesCountry(companies);
+      this.companiesBySector = this.calculateCompaniesSector(companies);
+      this.companiesCityData = this.calculateCompaniesCity(companies);
+    });
+  }
+
+  calculateCompaniesSector(companies: ICompany[]): any {
+    const tempCompaniesBySector: { name: string; series: any[] }[] = [
+      { name: 'Sector', series: [] },
+    ];
+
+    companies.forEach((company) => {
+      const existingSector = tempCompaniesBySector[0].series.find(
+        (item) => item.name === company.sector
+      );
+      if (existingSector) {
+        existingSector.value++;
+      } else {
+        tempCompaniesBySector[0].series.push({
+          name: company.sector,
+          value: 1,
+        });
+      }
+    });
+
+    return tempCompaniesBySector;
+  }
+
+  calculateCompaniesCity(companies: ICompany[]): any {
+    const companyCityData: any = [];
+    const cityCounts: any = {};
+    companies.forEach((company: ICompany) => {
+      if (cityCounts[company.city]) {
+        cityCounts[company.city]++;
+      } else {
+        cityCounts[company.city] = 1;
+      }
+    });
+
+    for (const city in cityCounts) {
+      if (cityCounts.hasOwnProperty(city)) {
+        companyCityData.push({ name: city, value: cityCounts[city] });
+      }
+    }
+    return companyCityData;
+  }
+
+  calculateCompaniesCountry(companies: ICompany[]): any {
+    const countryMap: Map<string, number> = new Map<string, number>();
+    companies.forEach((company) => {
+      if (countryMap.has(company.country)) {
+        countryMap.set(
+          company.country,
+          (countryMap.get(company.country) ?? 0) + 1
+        );
+      } else {
+        countryMap.set(company.country, 1);
+      }
+    });
+
+    const countries: any = [];
+    countryMap.forEach((value: number, key: string) => {
+      countries.push({ name: key, value: value });
+    });
+
+    return countries;
+  }
+
+  calculateContactsByCompany(contacts: IContact[]): any {
+    const companyMap = new Map<string, number>();
+
+    contacts.forEach((contact) => {
+      const companyName = contact.companyName;
+
+      if (companyMap.has(companyName)) {
+        companyMap.set(companyName, companyMap.get(companyName)! + 1);
+      } else {
+        companyMap.set(companyName, 1);
+      }
+    });
+
+    const tempContactsByCompany = Array.from(companyMap, ([name, value]) => ({
+      name,
+      value,
+    }));
+    return tempContactsByCompany;
   }
 
   calculateContactsByFullName(contacts: IContact[]): any {

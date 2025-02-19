@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -12,6 +12,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -35,6 +37,7 @@ import { CompanyDetailComponent } from './companies/company-detail/company-detai
 import { CompanyDeleteComponent } from './companies/company-delete/company-delete.component';
 import { CompanyNewComponent } from './companies/company-new/company-new.component';
 import { CompanyUpdateComponent } from './companies/company-update/company-update.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,7 @@ import { CompanyUpdateComponent } from './companies/company-update/company-updat
     CompanyDeleteComponent,
     CompanyNewComponent,
     CompanyUpdateComponent,
+    PaginatorComponent,
   ],
   entryComponents: [
     ContactDeleteComponent,
@@ -77,7 +81,10 @@ import { CompanyUpdateComponent } from './companies/company-update/company-updat
     MatIconModule,
     MatInputModule,
     MatNativeDateModule,
+    MatPaginatorModule,
+    MatSelectModule,
     NgxChartsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

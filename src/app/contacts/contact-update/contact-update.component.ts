@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { IContact } from 'src/app/models/contact';
 import { ContactsService } from '../contacts.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ICompany } from 'src/app/models/company';
+import { FormControl } from '@angular/forms';
+import { CompanyService } from 'src/app/companies/company.service';
 
 @Component({
   selector: 'app-contact-update',
@@ -10,9 +13,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ContactUpdateComponent implements OnInit {
   contact!: IContact;
+  companies = new FormControl('');
+  companiesList: ICompany[] = [];
 
   constructor(
     private contactsService: ContactsService,
+    private companyService: CompanyService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -23,6 +29,12 @@ export class ContactUpdateComponent implements OnInit {
       .subscribe((data) => {
         this.contact = data;
       });
+
+    this.companyService.getCompanies().subscribe((data: any) => {
+      this.companiesList = data.sort((a: any, b: any) =>
+        a.name > b.name ? 1 : -1
+      );
+    });
   }
 
   updateContact(): void {

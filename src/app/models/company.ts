@@ -6,5 +6,6 @@ export interface ICompany {
   country: string;
   city: string;
   website: string;
+  sector: string;
   contacts: IContact[];
 }
