@@ -1,6 +1,7 @@
 # AppmazingFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
+Backend -> https://github.com/Fansu7/corp_manager_back
 
 ## Development server
 
